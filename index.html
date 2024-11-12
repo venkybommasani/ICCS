@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>WELCOME TO INDIAN CHRISTIAN CHURCH OF SACRAMENTO</title>
+    <style>
+	body{
+		background-color: #E8F8F5; /* Light blue background color */
+		margin: 0; font-family: Arial, sans-serif;
+        .banner {
+            width: 100%;
+            height: 450px;
+        }
+
+        .logo {
+            width: 150px;  /* Adjust the size of the logo as needed */
+            height: 100px;
+            position: absolute;
+            top: 10px;  /* Adjust the position as needed */
+            right: 10px;  /* Adjust the position as needed */
+        }
+        .headline {
+            text-align: center;
+            font-size: 24px;
+            font-weight: bold;
+            margin: 20px 0;
+        }
+
+	.task-list, .event-list {
+ 		margin: 20px;
+	}
+	.task-item, .event-item {
+		margin: 10px 0;
+	}
+
+
+    </style>
+</head>
+
+<body>
+    <!-- Banner Image -->
+    <img src="{{ url_for('static', filename='ICS.jpg') }}" alt="Banner Image" class="banner">
+    
+    <!-- Headline Below the Image -->
+    <div class="headline">WELCOME TO ICCS - Event Scheduler</div>
+
+    <!-- Adding the logo -->
+    <img src="{{ url_for('static', filename='logo.jpg') }}" alt="Logo" class="logo">
+    
+   
+    <h1 align='middle'>Event Scheduler</h1>
+
+	<h2>Upcoming Events</h2>
+	<div class="event-list">
+		{% for event in events %}
+	<div class="event-item">
+	<strong>Date and Time:</strong> {{ event['date'] }}<br>
+	<strong>Event:</strong> {{ event['event'] }}
+	</div>
+	{% endfor %}
+	</div>
+
+
+
+    <form action="/add" method="post" align='middle'>
+	<label for="date">Date:</label>
+	<input type="date" id="date" name="date"><br><br>
+	<label for="time">Time:</label>
+	<input type="time" id="time" name="time"><br><br>
+	<label for="task">Task:</label>
+	<input type="text" id="task" name="task"><br><br>
+	<label for="email">Email:</label>
+	<input type="email" id="email" name="email"><br><br>
+	<input type="submit" value="Add Task">
+    </form>
+
+	<h2>Added Tasks</h2>
+	<div class="task-list">
+	{% for task in tasks %}
+		<div class="task-item">
+		<strong>Date and Time:</strong> {{ task['date'] }}<br>
+		<strong>Task:</strong> {{ task['task'] }}<br>
+		<strong>Email:</strong> {{ task['email'] }}
+	</div>
+	{% endfor %}
+</div>
+</body>
+</html>

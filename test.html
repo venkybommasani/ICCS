@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Login</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f8ff;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .banner {
+            width: 100%;
+            height: auto;
+            max-height: 200px;
+        }
+        .logo {
+            width: 150px;
+            height: auto;
+            margin-top: -75px;  /* Adjust as needed */
+            margin-bottom: 20px;
+        }
+        .container {
+            background-color: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            max-width: 400px;
+            width: 100%;
+        }
+        .container h2 {
+            margin-top: 0;
+            margin-bottom: 20px;
+            font-size: 24px;
+            color: #333;
+        }
+        .container label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: bold;
+        }
+        .container input[type="email"],
+        .container input[type="password"] {
+            width: calc(100% - 22px);
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+        .button-container {
+            display: flex;
+            justify-content: space-between;
+        }
+        .btn {
+            padding: 10px 20px;
+            font-size: 16px;
+            color: white;
+            background-color: #007bff;
+            border: none;
+            border-radius: 5px;
+            text-decoration: none;
+            cursor: pointer;
+        }
+        .btn.cancel {
+            background-color: #dc3545;
+        }
+        .btn:hover {
+            background-color: #0056b3;
+        }
+        .btn.cancel:hover {
+            background-color: #c82333;
+        }
+    </style>
+</head>
+<body>
+    <img src="{{ url_for('static', filename='ICS.jpg') }}" alt="Banner Image" class="banner">
+    <img src="{{ url_for('static', filename='logo.jpg') }}" alt="Logo" class="logo">
+	
+	
+    <div class="container">
+        <h2>Login</h2>
+        <form action="{{ url_for('login') }}" method="post">
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email"><br>
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password"><br>
+            <div class="button-container">
+                <input type="submit" value="Login" class="btn">
+                <button type="button" class="btn cancel" onclick="window.location.href='{{ url_for('home') }}'">Cancel</button>
+            </div>
+        </form>
+    </div>
+</body>
+</html>

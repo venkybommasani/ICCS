@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>WELCOME TO INDIAN CHRISTIAN CHURCH OF SACRAMENTO - LOGIN</title>
+	<style>
+	body{
+		background-color: #E8F8F5; /* Light blue background color */
+		margin: 0; font-family: Arial, sans-serif;
+        .banner {
+            width: 100%;
+            height: 450px;
+        }
+
+        .logo {
+            width: 150px;  /* Adjust the size of the logo as needed */
+            height: 100px;
+            position: absolute;
+            top: 10px;  /* Adjust the position as needed */
+            right: 10px;  /* Adjust the position as needed */
+        }
+        .headline {
+            text-align: center;
+            font-size: 24px;
+            font-weight: bold;
+            margin: 20px 0;
+        }
+
+	.task-list, .event-list {
+ 		margin: 20px;
+	}
+	.task-item, .event-item {
+		margin: 10px 0;
+	}
+	background-color: #f0f8ff;
+            margin: 0;
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            text-align: center;
+        }
+		.container {
+            background-color: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            max-width: 400px;
+            width: 100%;
+        }
+        .container h2 {
+            margin-top: 0;
+            margin-bottom: 20px;
+            font-size: 24px;
+            color: #333;
+        }
+        .container label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: bold;
+        }
+        .container input[type="email"],
+        .container input[type="password"] {
+            width: calc(100% - 22px);
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 16px;
+		}
+        .button-container {
+            display: flex;
+            justify-content: space-between;
+        }
+        .btn {
+            padding: 10px 20px;
+            font-size: 16px;
+            color: white;
+            background-color: #007bff;
+            border: none;
+            border-radius: 5px;
+            text-decoration: none;
+            cursor: pointer;
+        }
+		.btn.cancel{
+		    background-color: #dc3545;
+       }
+        .btn:hover {
+            background-color: #0056b3;
+        }
+		.btn.cancel:hover{
+		background-color: #c82333;
+		}
+
+    </style>
+</head>
+<body>
+    <!-- Banner Image -->
+    <img src="{{ url_for('static', filename='ICS.jpg') }}" alt="Banner Image" class="banner">
+    
+    <!-- Adding the logo -->
+    <img src="{{ url_for('static', filename='logo.jpg') }}" alt="Logo" class="logo">
+	
+	
+	<div class="container">
+        <h2>WELCOME TO ICCS - LOGIN</h2>
+        <form action="{{ url_for('login') }}" method="post">
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email"><br>
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password"><br>
+            <div class="button-container">
+                <input type="submit" value="Login" class="btn">
+                <button type="button" class="btn cancel" onclick="window.location.href='{{ url_for('home') }}'">Cancel</button>
+            </div>
+        </form>
+    </div>
+</body>
+</html>
+
+
+
+
