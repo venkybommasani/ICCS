@@ -31,50 +31,8 @@
 	.task-item, .event-item {
 		margin: 10px 0;
 	}
-       .logo {
-            width: 150px;
-            height: auto;
-            margin-top: -75px;
-            margin-bottom: 20px;
-        }
-        .container {
-            background-color: white;
-            padding: 30px;
-            border-radius: 10px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            max-width: 600px;
-            width: 100%;
-            margin-top: 20px;
-        }
-        .container h2 {
-            margin-top: 0;
-            margin-bottom: 20px;
-            font-size: 24px;
-            color: #333;
-        }
-        .button-container {
-            display: flex;
-            justify-content: space-between;
-        }
-        .btn {
-            padding: 10px 20px;
-            font-size: 16px;
-            color: white;
-            background-color: #007bff;
-            border: none;
-            border-radius: 5px;
-            text-decoration: none;
-            cursor: pointer;
-        }
-        .btn.logout {
-            background-color: #dc3545;
-        }
-        .btn:hover {
-            background-color: #0056b3;
-        }
-        .btn.logout:hover {
-            background-color: #c82333;
-        }
+
+
     </style>
 </head>
 
@@ -82,21 +40,11 @@
     <!-- Banner Image -->
     <img src="{{ url_for('static', filename='ICS.jpg') }}" alt="Banner Image" class="banner">
     
+    <!-- Headline Below the Image -->
+    <div class="headline">WELCOME TO ICCS - Event Scheduler</div>
+
     <!-- Adding the logo -->
     <img src="{{ url_for('static', filename='logo.jpg') }}" alt="Logo" class="logo">
-	
-	
-	<div class="container">
-        <h2>Welcome to ICCS - Event Scheduler</h2>
-        <ul class="task-list">
-            {% for task in tasks %}
-                <li>{{ task.task }} - {{ task.date.strftime('%Y-%m-%d %H:%M') }}</li>
-            {% endfor %}
-        </ul>
-        <div class="button-container">
-            <button class="btn logout" onclick="window.location.href='{{ url_for('logout') }}'">Logout</button>
-        </div>
-    </div>
     
    
     <h1 align='middle'>Event Scheduler</h1>
